@@ -1,16 +1,47 @@
-pub mod pkg;
-pub mod workspace;
+mod pkg;
+mod workspace;
+mod help;
 
-pub fn help() {
-    log_info!("Usage:");
+use std::env;
 
-    log_info!("\t\tros-z [Options] [NAME](Enter your workspace or package name.)");
+pub fn run()
+{
+    let args = env::args();
 
-    log_info!("Options:");
-    log_info!("\t\t-h, --help\tShow this help message.");
+    let mut args_vec = Vec::new();
 
-    log_info!("\t\tws\t\tcreate workspace and Cargo.toml");
-    log_info!("\t\tpkg\t\tcreate package");
+    for arg in args {
+        args_vec.push(arg);
+    }
+
+    if args_vec.len() < 2 {
+        log_warn!("Missing required arguments.");
+        log_warn!(
+            "Use '-h' or '--help' to display the help message and view detailed usage instructions."
+        );
+        return;
+    }
+
+    match args_vec[1].as_str() {
+        "ws" => {
+            let ws_name = args_vec[2].clone();
+
+            workspace::workspace_action(ws_name);
+        }
+        "pkg" => {
+            let pkg_name = args_vec[2].clone();
+
+            pkg::pkg_action(pkg_name);
+        }
+        "-h" => help::help(),
+        "--help" => help::help(),
+        _ => {
+            log_err!("Invalid arguments.");
+            log_err!(
+                "Use '-h' or '--help' to display the help message and view detailed usage instructions."
+            );
+        }
+    }
 }
 
 #[macro_export]
