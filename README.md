@@ -1,4 +1,6 @@
 # ros-z-cli
+[![Rust](https://github.com/motii8128/ros-z-cli/actions/workflows/rust.yml/badge.svg)](https://github.com/motii8128/ros-z-cli/actions/workflows/rust.yml)
+
 Command line tool for creating a workspace and packages that use the colcon build system in ros-z.
 
 # Usage
