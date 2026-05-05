@@ -14,7 +14,7 @@ pub fn run()
         args_vec.push(arg);
     }
 
-    if args_vec.len() < 3 {
+    if args_vec.len() < 2 {
         log_warn!("Missing required arguments.");
         log_warn!(
             "Use '-h' or '--help' to display the help message and view detailed usage instructions."

@@ -94,7 +94,7 @@ fn create_package_xml(pkg_name: String) -> bool {
             let _ = write_text(&mut xml_writer, "version", "0.0.0");
 
             // description
-            let _ = write_text(&mut xml_writer, "description", "");
+            let _ = write_text(&mut xml_writer, "description", "package using ros-z");
 
             // maintainer
             crate::log_info!("Get git email and user name.");
@@ -107,7 +107,7 @@ fn create_package_xml(pkg_name: String) -> bool {
             let _ = xml_writer.write_event(Event::End(BytesEnd::new("maintainer")));
 
             // license
-            let _ = write_text(&mut xml_writer, "license", "");
+            let _ = write_text(&mut xml_writer, "license", "Apache License 2.0");
 
             // test_depend
             let _ = write_text(&mut xml_writer, "test_depend", "ament_lint_auto");
