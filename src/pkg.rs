@@ -31,6 +31,8 @@ pub fn pkg_action(pkg_name: String) {
     crate::log_info!("add depend to Cargo.toml");
     add_depend_to_cargo_toml(pkg_name.clone());
 
+    change_edition(pkg_name.clone());
+
     crate::log_info!("complete task to create package. {}", pkg_name);
     crate::log_info!("End ROS-Z-CLI");
 }
@@ -158,6 +160,20 @@ fn add_depend_to_cargo_toml(pkg_name: String) {
         toml_file,
         "tokio = {{ version = \"1\", features = [\"full\"] }}  # Async runtime"
     );
+}
+
+fn change_edition(pkg_name: String)
+{
+    let toml_path = format!("./src/{}/Cargo.toml", pkg_name);
+    let mut output = Command::new("sed")
+        .arg("-i")
+        .arg("s/edition = \".*\"/edition = \"2021\"/")
+        .arg(toml_path.as_str())
+        .spawn()
+        .expect("Failed to execute git config.");
+
+    let _ = output.wait();
+    // sed -i 's/edition = ".*"/edition = "2021"/' myproj/Cargo.toml
 }
 
 fn get_git_email() -> String {
