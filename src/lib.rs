@@ -14,7 +14,7 @@ pub fn run()
         args_vec.push(arg);
     }
 
-    if args_vec.len() < 2 {
+    if args_vec.len() < 3 {
         log_warn!("Missing required arguments.");
         log_warn!(
             "Use '-h' or '--help' to display the help message and view detailed usage instructions."
@@ -47,20 +47,20 @@ pub fn run()
 #[macro_export]
 macro_rules! log_info {
     ($($arg:tt)*) => {
-        println!("{} {}", colored::Colorize::green(format!("[ROS-Z-CLI][INFO]").as_str()), colored::Colorize::green(format!($($arg)*).as_str()));
+        println!("[ROS-Z-CLI][INFO] {}", colored::Colorize::green(format!($($arg)*).as_str()));
     };
 }
 
 #[macro_export]
 macro_rules! log_warn {
     ($($arg:tt)*) => {
-        println!("{} {}", colored::Colorize::yellow(format!("[ROS-Z-CLI][WARN]").as_str()), colored::Colorize::yellow(format!($($arg)*).as_str()));
+        println!("[ROS-Z-CLI][WARN] {}",colored::Colorize::yellow(format!($($arg)*).as_str()));
     };
 }
 
 #[macro_export]
 macro_rules! log_err {
     ($($arg:tt)*) => {
-        println!("{} {}", colored::Colorize::red(format!("[ROS-Z-CLI][ERROR]").as_str()), colored::Colorize::red(format!($($arg)*).as_str()));
+        println!("[ROS-Z-CLI][ERROR] {}", colored::Colorize::red(format!($($arg)*).as_str()));
     };
 }
