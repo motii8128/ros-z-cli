@@ -13,6 +13,18 @@ cargo install --path .
 
 ### show help
 ```
-ros-z -h
-ros-z --help
+rosz -h
+rosz --help
+```
+
+### create workspace
+create workspace and Cargo.toml
+```
+rosz ws <WORKSPACE_NAME>
+```
+
+### create package
+create cargo package with package.xml and ros-z depend
+```
+rosz pkg <PACKAGE_NAME>
 ```
