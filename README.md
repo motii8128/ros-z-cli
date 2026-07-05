@@ -5,11 +5,7 @@ Command line tool for creating a workspace and cargo package that use the colcon
 
 # Usage
 ### install
-```
-git clone https://github.com/motii8128/hiroz-cli.git
-cd hiroz-cli
-cargo install --path .
-```
+Get .deb package from release.
 
 ### show help
 ```
