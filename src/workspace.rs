@@ -7,7 +7,7 @@ pub fn workspace_action(name: String) {
     crate::log_info!("start to create workspace. name : {}", name.clone());
     if ws_and_src_path.exists() {
         crate::log_warn!("workspace {} is already exists.", name);
-        crate::log_err!("Shutdown ROS-Z-CLI...");
+        crate::log_err!("Shutdown HIROZ-CLI...");
         return;
     }
 
@@ -26,11 +26,11 @@ pub fn workspace_action(name: String) {
         }
         Err(_e) => {
             crate::log_err!("Failed to create {}", cargo_toml.clone());
-            crate::log_err!("Shutdown ROS-Z-CLI...");
+            crate::log_err!("Shutdown HIROZ-CLI...");
             return;
         }
     }
 
     crate::log_info!("complete task to create workspace. {}", name);
-    crate::log_info!("End ROS-Z-CLI");
+    crate::log_info!("End HIROZ-CLI");
 }

@@ -10,3 +10,17 @@ path = "src/main.rs"
 [dependencies]
 colored = "3.1.1"
 quick-xml = "0.39.2"
+
+[package.metadata.deb]
+maintainer = "motii<default270robo@gmail.com>"
+depends = "$auto"
+extended-description = """
+このツールはコマンドラインの作業を効率化するために
+Rustで開発されました。詳細な使い方はGitHubを参照してください。
+"""
+section = "utility"
+priority = "optional"
+
+assets = [
+    ["target/release/hiroz", "usr/bin/hiroz", "755"],
+]

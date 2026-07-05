@@ -12,7 +12,7 @@ pub fn pkg_action(pkg_name: String) {
     if !src_path.exists() {
         crate::log_err!("\"src\" folder not found.");
         crate::log_err!("Please move to the workspace directory before use this command.");
-        crate::log_err!("Shutdown ROS-Z-CLI");
+        crate::log_err!("Shutdown HIROZ-CLI");
         return;
     }
 
@@ -34,7 +34,7 @@ pub fn pkg_action(pkg_name: String) {
     change_edition(pkg_name.clone());
 
     crate::log_info!("complete task to create package. {}", pkg_name);
-    crate::log_info!("End ROS-Z-CLI");
+    crate::log_info!("End HIROZ-CLI");
 }
 
 fn cargo_new(pkg_name: String) -> bool {
@@ -96,7 +96,7 @@ fn create_package_xml(pkg_name: String) -> bool {
             let _ = write_text(&mut xml_writer, "version", "0.0.0");
 
             // description
-            let _ = write_text(&mut xml_writer, "description", "package using ros-z");
+            let _ = write_text(&mut xml_writer, "description", "package using HIROZ");
 
             // maintainer
             crate::log_info!("Get git email and user name.");
@@ -145,16 +145,16 @@ fn add_depend_to_cargo_toml(pkg_name: String) {
         .open(toml_path)
         .unwrap();
 
-    // ros-z = { git = "https://github.com/ZettaScaleLabs/ros-z.git" }
-    // ros-z-msgs = { git = "https://github.com/ZettaScaleLabs/ros-z.git" }  # Standard ROS 2 message types
+    // HIROZ = { git = "https://github.com/ZettaScaleLabs/HIROZ.git" }
+    // HIROZ-msgs = { git = "https://github.com/ZettaScaleLabs/HIROZ.git" }  # Standard ROS 2 message types
     // tokio = { version = "1", features = ["full"] }  # Async runtime
     let _ = writeln!(
         toml_file,
-        "ros-z = {{ git = \"https://github.com/ZettaScaleLabs/ros-z.git\" }}"
+        "HIROZ = {{ git = \"https://github.com/ZettaScaleLabs/hiroz.git\" }}"
     );
     let _ = writeln!(
         toml_file,
-        "ros-z-msgs = {{ git = \"https://github.com/ZettaScaleLabs/ros-z.git\" }}  # Standard ROS 2 message types"
+        "HIROZ-msgs = {{ git = \"https://github.com/ZettaScaleLabs/hiroz.git\" }}  # Standard ROS 2 message types"
     );
     let _ = writeln!(
         toml_file,
