@@ -1,5 +1,5 @@
-use ros_z_cli;
+use hiroz_cli;
 
 fn main() {
-    ros_z_cli::run();
+    hiroz_cli::run();
 }

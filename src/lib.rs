@@ -47,7 +47,7 @@ pub fn run()
 #[macro_export]
 macro_rules! log_info {
     ($($arg:tt)*) => {
-        println!("[ROS-Z-CLI][INFO] {}", colored::Colorize::green(format!($($arg)*).as_str()));
+        println!("[ROS-Z-CLI][INFO] {}", format!($($arg)*).as_str());
     };
 }
 

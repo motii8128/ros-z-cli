@@ -1,10 +1,10 @@
 [package]
-name = "ros-z-cli"
+name = "hiroz-cli"
 version = "0.1.0"
 edition = "2024"
 
 [[bin]]
-name = "rosz"
+name = "hiroz"
 path = "src/main.rs"
 
 [dependencies]
