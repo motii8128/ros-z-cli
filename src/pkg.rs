@@ -150,11 +150,11 @@ fn add_depend_to_cargo_toml(pkg_name: String) {
     // tokio = { version = "1", features = ["full"] }  # Async runtime
     let _ = writeln!(
         toml_file,
-        "HIROZ = {{ git = \"https://github.com/ZettaScaleLabs/hiroz.git\" }}"
+        "hiroz = {{ git = \"https://github.com/ZettaScaleLabs/hiroz.git\" }}"
     );
     let _ = writeln!(
         toml_file,
-        "HIROZ-msgs = {{ git = \"https://github.com/ZettaScaleLabs/hiroz.git\" }}  # Standard ROS 2 message types"
+        "hiroz-msgs = {{ git = \"https://github.com/ZettaScaleLabs/hiroz.git\" }}  # Standard ROS 2 message types"
     );
     let _ = writeln!(
         toml_file,
